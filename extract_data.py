@@ -110,12 +110,33 @@ class ExtractTokpedTorchData(luigi.Task):
                     except:
                         discount = None
 
+                    try:
+                        rating_elem = container.find_element(By.CSS_SELECTOR, ".prd_rating-average-text")
+                        rating = rating_elem.text if rating_elem else None
+                    except:
+                        rating = None
+                    
+                    try:
+                        sold_elem = container.find_element(By.CSS_SELECTOR, ".prd_label-integrity")
+                        sold = sold_elem.text if sold_elem else None
+                    except:
+                        sold = None
+                    
+                    try:
+                        image_elem = container.find_element(By.CSS_SELECTOR, ".css-1q90pod")
+                        image = image_elem.get_attribute('src') if image_elem else None
+                    except:
+                        image = None
+
                     product_data.append({
                         'name_product': name,
                         'product_link': link,
                         'price_sale': price_sale,
                         'price_original': price,
-                        'discount': discount
+                        'discount': discount,
+                        'sold': sold,
+                        'rating': rating,
+                        'image_link': image
                     })
 
             torch_tokped_df = pd.DataFrame(product_data)
@@ -237,21 +258,5 @@ class ExtractLazadaTorchData(luigi.Task):
     def output(self):
         return luigi.LocalTarget('raw-data/torch_lazada_raw.csv')
 
-class RunAllTasks(luigi.Task):
-    def requires(self):
-        return [
-            ExtractMarketingData(),
-            ExtractDatabaseSalesData(),
-            ExtractTokpedTorchData(),
-            ExtractLazadaTorchData()
-        ]
-
-    def output(self):
-        return luigi.LocalTarget('raw-data/all_tasks_completed.txt')
-
-    def run(self):
-        with self.output().open('w') as f:
-            f.write('All tasks completed successfully.')
-
 if __name__ == '__main__':
-    luigi.build([RunAllTasks()], local_scheduler=True)
+    luigi.build([ExtractMarketingData(), ExtractDatabaseSalesData(), ExtractTokpedTorchData(), ExtractTokpedTorchData()], local_scheduler=True)
