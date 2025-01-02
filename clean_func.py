@@ -6,7 +6,7 @@ def clean_product_name(name):
     # Mengubah menjadi huruf kapital
     name = name.upper()
     # Menghapus tanda baca dan karakter khusus
-    name = re.sub(r'[-/\[\]]', ' ', name)
+    name = re.sub(r'[-/\[\]"\']', ' ', name)
     # Menghapus spasi ekstra
     name = re.sub(r'\s+', ' ', name).strip()
     return name
@@ -54,3 +54,10 @@ def clean_data_lazada(lazada):
     lazada = lazada.drop_duplicates(subset='name_product', keep='first')
 
     return lazada
+
+# Fungsi untuk membersihan data marketing
+def get_earliest_date(date):
+    date_list = [pd.to_datetime(date.strip(), format="%Y-%m-%dT%H:%M:%SZ") for date in dates.split(",")]
+    earliest_date = min(date_list)
+    return earliest_date.strftime("%Y-%m-%d")
+

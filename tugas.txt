@@ -130,3 +130,23 @@ Dataset menjadi lebih ringkas dan terfokus.
 Data penting untuk analisis tetap terjaga.
 Mengurangi noise atau redundansi data yang tidak relevan.
 Jika ada data yang spesifik ingin difokuskan, kita bisa sesuaikan lagi!
+
+
+
+Available (Tersedia):
+
+Untuk semua status yang menunjukkan barang tersedia.
+Contoh: 'Yes', 'yes', 'In Stock', 'TRUE', '32 available', '7 available'.
+Unavailable (Tidak Tersedia):
+
+Untuk status yang menunjukkan barang tidak ada.
+Contoh: 'No', 'Out Of Stock', 'FALSE', 'sold', 'Retired'.
+Pending (Dalam Proses):
+
+Untuk status yang menunjukkan barang mungkin akan tersedia atau memerlukan tindakan tambahan.
+Contoh: 'Special Order', 'More on the Way'.
+Undefined (Tidak Jelas):
+
+Untuk status yang tidak jelas atau tidak didefinisikan.
+Contoh: 'undefined'.
+
