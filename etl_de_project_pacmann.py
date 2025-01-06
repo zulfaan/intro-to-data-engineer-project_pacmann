@@ -297,14 +297,15 @@ def clean_data_lazada(lazada):
 
     lazada['discount'] = lazada['discount'].fillna('Tidak Ada Diskon')
     lazada['discount'] = lazada['discount'].str.replace('Voucher save', '')
-    
-    lazada['sold'] = lazada['sold'].fillna('Belum Ada Penjualan')
-    lazada['sold'] = lazada['sold'].str.replace(' sold', '')
-    lazada['sold'] = lazada['sold'].str.replace(' K', '000').str.replace('K', '000').str.replace('.', '')
 
     lazada['rating'] = lazada['rating'].fillna('Belum Ada Penilaian')
-    lazada['rating_count'] = lazada['rating_count'].fillna('0')
-    lazada['rating_count'] = lazada['rating_count'].astype(int)
+    lazada['rating_count'] = lazada['rating_count'].fillna('0').astype(int)
+    
+    lazada['sold'] = lazada['sold'].fillna(lazada['rating_count'])
+    lazada['sold'] = lazada['sold'].str.replace(' sold', '')
+    lazada['sold'] = lazada['sold'].str.replace(' K', '000').str.replace('K', '000').str.replace('.', '')
+    lazada['sold'] = lazada['sold'].fillna(lazada['rating_count']).astype(int)
+
     lazada = lazada.drop(columns=['image_link'])
 
     lazada['name_product'] = lazada['name_product'].apply(clean_product_name)
@@ -353,11 +354,11 @@ def clean_availability(value):
     if pd.isna(value):
         return 'Unavailable'
     value = str(value).lower()
-    if 'in stock' or 'yes' or 'true' or ' availaible' in value:
+    if 'in stock' in value or 'yes' in value or 'true' in value or 'available' in value:
         return 'Available'
-    elif 'out of stock' or 'no' or 'retired' or 'sold' or 'false' in value:
+    elif 'out of stock' in value or 'no' in value or 'retired' in value or 'sold' in value or 'false' in value:
         return 'Unavailable'
-    elif 'special order' or 'more on the way' in value:
+    elif 'special order' in value or 'more on the way' in value:
         return 'Pending'
     else:
         return 'Unavailable'
@@ -605,9 +606,9 @@ class LoadData(luigi.Task):
             price_original INT NOT NULL,
             price_sale INT NOT NULL,
             discount TEXT NOT NULL,
-            sold TEXT NOT NULL,
+            sold INT NOT NULL,
             rating TEXT NOT NULL,
-            rating_count TEXT NOT NULL,
+            rating_count INT NOT NULL,
             created_at TIMESTAMP NOT NULL DEFAULT now()
         );
         """
