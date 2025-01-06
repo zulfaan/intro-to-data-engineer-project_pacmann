@@ -12,48 +12,57 @@ import time
 import json
 import re
 
-# Extract Data
+# Fungsi untuk menghubungkan ke database PostgreSQL
 def db_source_sales_engine():
-    db_username = 'postgres'
-    db_password = 'password123'
-    db_host = 'localhost:5433'
-    db_name = 'etl_db'
+    db_username = 'postgres' # Nama pengguna database
+    db_password = 'password123' # Kata sandi database
+    db_host = 'localhost:5433' # Host database
+    db_name = 'etl_db' # Nama database
 
+    # Membuat string koneksi untuk database PostsgreSQL
     engine_str = f"postgresql://{db_username}:{db_password}@{db_host}/{db_name}"
-    engine = create_engine(engine_str)
+    engine = create_engine(engine_str) # Membuat koneksi ke database
 
-    return engine
+    return engine # Mengembalikan engine
 
+# Mengekstrak data pemasaran dari file CSV
 class ExtractMarketingData(luigi.Task):
     def requires(self):
-        pass
+        pass # Tidak ada task yang diperlukan
+
+    def output(self):
+        return luigi.LocalTarget('raw-data/extracted_marketing_data.csv') # Menyimpan data yang diekstrak ke file CSV
 
     def run(self):
-        #read data
+        # Membaca data dari file CSV
         marketing_data = pd.read_csv('source-marketing_data/ElectronicsProductsPricingData.csv')
 
+        # Menyimpan data yang diekstrak ke file CSV 
         marketing_data.to_csv(self.output().path, index = False)
 
-    def output(self):
-        return luigi.LocalTarget('raw-data/extracted_marketing_data.csv')
-
+# Mengekstrak data penjualan dari database PostgreSQL
 class ExtractDatabaseSalesData(luigi.Task):
     def requires(self):
-        pass
-    def run(self):
-        engine = db_source_sales_engine()
-        query = 'SELECT * FROM amazon_sales_data'
+        pass # Tidak ada task yang diperlukan
 
-        db_data = pd.read_sql(query, engine)
-        
-        db_data.to_csv(self.output().path, index = False)
     def output(self):
-        return luigi.LocalTarget('raw-data/extracted_sales_data.csv')
+        return luigi.LocalTarget('raw-data/extracted_sales_data.csv') # Menyimpan data yang diekstrak ke file CSV
 
+    def run(self):
+        engine = db_source_sales_engine() # Menghubungkan ke database
+        query = 'SELECT * FROM amazon_sales_data' # Query untuk mengambil data dari tabel amazon_sales_data
+
+        # Mengambil data dari database menggunakan query SQL
+        db_data = pd.read_sql(query, engine)
+
+        # Menyimpan data yang diekstrak ke file CSV
+        db_data.to_csv(self.output().path, index = False)
+
+# Mengekstrak data produk Torch dari Tokopedia
 class ExtractTokpedTorchData(luigi.Task):
     def requires(self):
-        pass
-
+        pass # Tidak ada task yang diperlukan
+    
     def run(self):
         base_url = "https://www.tokopedia.com/torch-id/product/page/{}"
 

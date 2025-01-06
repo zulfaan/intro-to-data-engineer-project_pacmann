@@ -1,6 +1,4 @@
--- select * from marketing_clean;
--- select * from sales_clean;
--- select * from torch_lazada_clean;
--- select * from torch_tokped_clean;
-
+TRUNCATE TABLE marketing_clean;
+TRUNCATE TABLE sales_clean;
 TRUNCATE TABLE torch_lazada_clean;
+TRUNCATE TABLE torch_tokped_clean;
