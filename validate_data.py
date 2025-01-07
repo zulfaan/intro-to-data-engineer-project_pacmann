@@ -1,4 +1,4 @@
-from extract_data import ExtractLazadaTorchData, ExtractTokpedTorchData, ExtractDatabaseSalesData, ExtractMarketingData
+from etl_de_project_pacmann import ExtractLazadaTorchData, ExtractTokpedTorchData, ExtractDatabaseSalesData, ExtractMarketingData
 from tabulate import tabulate
 import pandas as pd
 import luigi
