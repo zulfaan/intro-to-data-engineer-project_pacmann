@@ -1,0 +1,9 @@
+bash: line 1: 2: command not found
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 1, in <module>
+    from selenium.webdriver.chrome.service import Service
+ModuleNotFoundError: No module named 'selenium'
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 1, in <module>
+    from selenium.webdriver.chrome.service import Service
+ModuleNotFoundError: No module named 'selenium'
