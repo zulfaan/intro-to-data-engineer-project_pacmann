@@ -1,9 +1,1460 @@
-bash: line 1: 2: command not found
+/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/run_etl.sh: line 14: python: command not found
+/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/run_etl.sh: line 13: python: command not found
+/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/run_etl.sh: line 13: python: command not found
+/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/run_etl.sh: line 13: python: command not found
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformTorchData() is complete
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+DEBUG: Checking if ExtractLazadaTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if LoadData() is complete
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+DEBUG: Checking if ExtractLazadaTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+INFO: Done scheduling tasks
+INFO: Running Worker with 1 processes
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 8
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) running   ExtractMarketingData()
+ERROR: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) failed    ExtractMarketingData()
 Traceback (most recent call last):
-  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 1, in <module>
-    from selenium.webdriver.chrome.service import Service
-ModuleNotFoundError: No module named 'selenium'
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 38, in run
+    marketing_data = pd.read_csv('source-marketing_data/ElectronicsProductsPricingData.csv')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'source-marketing_data/ElectronicsProductsPricingData.csv'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 8
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) running   ExtractDatabaseSalesData()
+ERROR: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) failed    ExtractDatabaseSalesData()
 Traceback (most recent call last):
-  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 1, in <module>
-    from selenium.webdriver.chrome.service import Service
-ModuleNotFoundError: No module named 'selenium'
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 59, in run
+    db_data.to_csv(self.output().path, index = False)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'raw-data'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 8
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) running   ExtractTokpedTorchData()
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) done      ExtractTokpedTorchData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 7
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) running   ExtractLazadaTorchData()
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformTorchData() is complete
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+DEBUG: Checking if ExtractLazadaTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if LoadData() is complete
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+DEBUG: Checking if ExtractLazadaTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+INFO: Done scheduling tasks
+INFO: Running Worker with 1 processes
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 8
+INFO: [pid 9548] Worker Worker(salt=9851953339, workers=1, host=zueible, username=zulfan, pid=9548) running   ExtractMarketingData()
+ERROR: [pid 9548] Worker Worker(salt=9851953339, workers=1, host=zueible, username=zulfan, pid=9548) failed    ExtractMarketingData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 38, in run
+    marketing_data = pd.read_csv('source-marketing_data/ElectronicsProductsPricingData.csv')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'source-marketing_data/ElectronicsProductsPricingData.csv'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 8
+INFO: [pid 9548] Worker Worker(salt=9851953339, workers=1, host=zueible, username=zulfan, pid=9548) running   ExtractDatabaseSalesData()
+ERROR: [pid 9548] Worker Worker(salt=9851953339, workers=1, host=zueible, username=zulfan, pid=9548) failed    ExtractDatabaseSalesData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 59, in run
+    db_data.to_csv(self.output().path, index = False)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'raw-data'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 8
+INFO: [pid 9548] Worker Worker(salt=9851953339, workers=1, host=zueible, username=zulfan, pid=9548) running   ExtractTokpedTorchData()
+ERROR: [pid 9548] Worker Worker(salt=9851953339, workers=1, host=zueible, username=zulfan, pid=9548) failed    ExtractTokpedTorchData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 78, in run
+    driver = webdriver.Chrome(options=options) # Membuat instance dari webdriver Chrome
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/chrome/webdriver.py", line 45, in __init__
+    super().__init__(
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/chromium/webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 241, in __init__
+    self.start_session(capabilities)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 329, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 384, in execute
+    self.error_handler.check_response(response)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /snap/chromium/3019/usr/lib/chromium-browser/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x55bf9aca35ea <unknown>
+#1 0x55bf9a7ca6e0 <unknown>
+#2 0x55bf9a80112e <unknown>
+#3 0x55bf9a7fd355 <unknown>
+#4 0x55bf9a848565 <unknown>
+#5 0x55bf9a847c06 <unknown>
+#6 0x55bf9a83c343 <unknown>
+#7 0x55bf9a80b032 <unknown>
+#8 0x55bf9a80c00e <unknown>
+#9 0x55bf9ac717bf <unknown>
+#10 0x55bf9ac758dd <unknown>
+#11 0x55bf9ac5ff07 <unknown>
+#12 0x55bf9ac76051 <unknown>
+#13 0x55bf9ac47dfe <unknown>
+#14 0x55bf9ac92338 <unknown>
+#15 0x55bf9ac9253a <unknown>
+#16 0x55bf9aca225c <unknown>
+#17 0x7f061c709ac3 <unknown>
+
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 8
+INFO: [pid 9548] Worker Worker(salt=9851953339, workers=1, host=zueible, username=zulfan, pid=9548) running   ExtractLazadaTorchData()
+ERROR: [pid 9548] Worker Worker(salt=9851953339, workers=1, host=zueible, username=zulfan, pid=9548) failed    ExtractLazadaTorchData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 193, in run
+    driver = webdriver.Chrome(options=options) # Membuat instance dari webdriver Chrome
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/chrome/webdriver.py", line 45, in __init__
+    super().__init__(
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/chromium/webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 241, in __init__
+    self.start_session(capabilities)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 329, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 384, in execute
+    self.error_handler.check_response(response)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /snap/chromium/3019/usr/lib/chromium-browser/chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x55a6103fc5ea <unknown>
+#1 0x55a60ff236e0 <unknown>
+#2 0x55a60ff5a12e <unknown>
+#3 0x55a60ff56355 <unknown>
+#4 0x55a60ffa1565 <unknown>
+#5 0x55a60ffa0c06 <unknown>
+#6 0x55a60ff95343 <unknown>
+#7 0x55a60ff64032 <unknown>
+#8 0x55a60ff6500e <unknown>
+#9 0x55a6103ca7bf <unknown>
+#10 0x55a6103ce8dd <unknown>
+#11 0x55a6103b8f07 <unknown>
+#12 0x55a6103cf051 <unknown>
+#13 0x55a6103a0dfe <unknown>
+#14 0x55a6103eb338 <unknown>
+#15 0x55a6103eb53a <unknown>
+#16 0x55a6103fb25c <unknown>
+#17 0x7fb35d45fac3 <unknown>
+
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Done
+DEBUG: There are no more tasks to run at this time
+DEBUG: There are 8 pending tasks possibly being run by other workers
+DEBUG: There are 8 pending tasks unique to this worker
+DEBUG: There are 8 pending tasks last scheduled by this worker
+INFO: Worker Worker(salt=9851953339, workers=1, host=zueible, username=zulfan, pid=9548) was stopped. Shutting down Keep-Alive thread
+INFO: 
+===== Luigi Execution Summary =====
+
+Scheduled 8 tasks of which:
+* 4 failed:
+    - 1 ExtractDatabaseSalesData()
+    - 1 ExtractLazadaTorchData()
+    - 1 ExtractMarketingData()
+    - 1 ExtractTokpedTorchData()
+* 4 were left pending, among these:
+    * 4 had failed dependencies:
+        - 1 LoadData()
+        - 1 TransformMarketingData()
+        - 1 TransformSalesData()
+        - 1 TransformTorchData()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) done      ExtractLazadaTorchData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 6
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) running   ExtractMarketingData()
+ERROR: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) failed    ExtractMarketingData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 38, in run
+    marketing_data = pd.read_csv('source-marketing_data/ElectronicsProductsPricingData.csv')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'source-marketing_data/ElectronicsProductsPricingData.csv'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 6
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) running   ExtractDatabaseSalesData()
+ERROR: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) failed    ExtractDatabaseSalesData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 59, in run
+    db_data.to_csv(self.output().path, index = False)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'raw-data'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 6
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) running   TransformTorchData()
+ERROR: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) failed    TransformTorchData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 195, in run
+    raise RuntimeError('Unfulfilled %s at run time: %s' % (deps, ', '.join(missing)))
+RuntimeError: Unfulfilled dependencies at run time: ExtractTokpedTorchData__99914b932b (raw-data/torch_tokped_raw.csv), ExtractLazadaTorchData__99914b932b (raw-data/torch_lazada_raw.csv)
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   FAILED
+DEBUG: Checking if TransformTorchData() is complete
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+DEBUG: Checking if ExtractLazadaTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 7
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) running   ExtractTokpedTorchData()
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) done      ExtractTokpedTorchData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 6
+INFO: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) running   TransformTorchData()
+ERROR: [pid 7734] Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) failed    TransformTorchData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 195, in run
+    raise RuntimeError('Unfulfilled %s at run time: %s' % (deps, ', '.join(missing)))
+RuntimeError: Unfulfilled dependencies at run time: ExtractTokpedTorchData__99914b932b (raw-data/torch_tokped_raw.csv), ExtractLazadaTorchData__99914b932b (raw-data/torch_lazada_raw.csv)
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Done
+DEBUG: There are no more tasks to run at this time
+DEBUG: There are 6 pending tasks possibly being run by other workers
+DEBUG: There are 6 pending tasks unique to this worker
+DEBUG: There are 6 pending tasks last scheduled by this worker
+INFO: Worker Worker(salt=7225783369, workers=1, host=zueible, username=zulfan, pid=7734) was stopped. Shutting down Keep-Alive thread
+INFO: 
+===== Luigi Execution Summary =====
+
+Scheduled 8 tasks of which:
+* 2 ran successfully:
+    - 1 ExtractLazadaTorchData()
+    - 1 ExtractTokpedTorchData()
+* 3 failed:
+    - 1 ExtractDatabaseSalesData()
+    - 1 ExtractMarketingData()
+    - 1 TransformTorchData()
+* 3 were left pending, among these:
+    * 3 had failed dependencies:
+        - 1 LoadData()
+        - 1 TransformMarketingData()
+        - 1 TransformSalesData()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
+Terjadi kesalahan: Cannot save file into a non-existent directory: 'raw-data'
+Terjadi kesalahan: Cannot save file into a non-existent directory: 'raw-data'
+Terjadi kesalahan: Cannot save file into a non-existent directory: 'raw-data'
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Checking if TransformSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   DONE
+DEBUG: Checking if TransformMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   DONE
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   DONE
+DEBUG: Checking if LoadData() is complete
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   DONE
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   DONE
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   DONE
+INFO: Done scheduling tasks
+INFO: Running Worker with 1 processes
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 1
+INFO: [pid 11129] Worker Worker(salt=216730159, workers=1, host=zueible, username=zulfan, pid=11129) running   LoadData()
+ERROR: [pid 11129] Worker Worker(salt=216730159, workers=1, host=zueible, username=zulfan, pid=11129) failed    LoadData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3298, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 622, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 677, in run
+    with dw_engine.connect() as conn:
+         ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3274, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3298, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 622, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Done
+DEBUG: There are no more tasks to run at this time
+DEBUG: There are 1 pending tasks possibly being run by other workers
+DEBUG: There are 1 pending tasks unique to this worker
+DEBUG: There are 1 pending tasks last scheduled by this worker
+INFO: Worker Worker(salt=216730159, workers=1, host=zueible, username=zulfan, pid=11129) was stopped. Shutting down Keep-Alive thread
+INFO: 
+===== Luigi Execution Summary =====
+
+Scheduled 7 tasks of which:
+* 6 complete ones were encountered:
+    - 1 ExtractDatabaseSalesData()
+    - 1 ExtractMarketingData()
+    - 1 ExtractTokpedTorchData()
+    - 1 TransformMarketingData()
+    - 1 TransformSalesData()
+    ...
+* 1 failed:
+    - 1 LoadData()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformTorchData() is complete
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+DEBUG: Checking if ExtractLazadaTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if LoadData() is complete
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+DEBUG: Checking if ExtractLazadaTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+INFO: Done scheduling tasks
+INFO: Running Worker with 1 processes
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 8
+INFO: [pid 11312] Worker Worker(salt=6269096435, workers=1, host=zueible, username=zulfan, pid=11312) running   ExtractMarketingData()
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if TransformTorchData() is complete
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+DEBUG: Checking if ExtractLazadaTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if LoadData() is complete
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+DEBUG: Checking if ExtractLazadaTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   PENDING
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   PENDING
+INFO: Done scheduling tasks
+INFO: Running Worker with 1 processes
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 8
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   ExtractMarketingData()
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) done      ExtractMarketingData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 7
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   ExtractDatabaseSalesData()
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) done      ExtractDatabaseSalesData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 6
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   ExtractTokpedTorchData()
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) done      ExtractTokpedTorchData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 5
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   TransformSalesData()
+ERROR: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) failed    TransformSalesData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 577, in run
+    sales_data.to_csv("transform-data/sales_clean.csv", index=False)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'transform-data'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 5
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   TransformMarketingData()
+ERROR: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) failed    TransformMarketingData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 506, in run
+    marketing_data.to_csv("transform-data/marketing_clean.csv", index=False)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'transform-data'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 5
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   ExtractLazadaTorchData()
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) done      ExtractLazadaTorchData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 4
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   TransformTorchData()
+ERROR: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) failed    TransformTorchData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 195, in run
+    raise RuntimeError('Unfulfilled %s at run time: %s' % (deps, ', '.join(missing)))
+RuntimeError: Unfulfilled dependency at run time: ExtractTokpedTorchData__99914b932b (/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/raw-data/torch_tokped_raw.csv)
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   FAILED
+DEBUG: Checking if TransformTorchData() is complete
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+DEBUG: Checking if ExtractLazadaTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractLazadaTorchData__99914b932b   has status   DONE
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   PENDING
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 5
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   ExtractTokpedTorchData()
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) done      ExtractTokpedTorchData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 4
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   TransformSalesData()
+ERROR: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) failed    TransformSalesData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 577, in run
+    sales_data.to_csv("transform-data/sales_clean.csv", index=False)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'transform-data'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 4
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   TransformMarketingData()
+ERROR: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) failed    TransformMarketingData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 506, in run
+    marketing_data.to_csv("transform-data/marketing_clean.csv", index=False)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'transform-data'
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 4
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) running   TransformTorchData()
+INFO: [pid 1031] Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) done      TransformTorchData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Done
+DEBUG: There are no more tasks to run at this time
+DEBUG: There are 3 pending tasks possibly being run by other workers
+DEBUG: There are 3 pending tasks unique to this worker
+DEBUG: There are 3 pending tasks last scheduled by this worker
+INFO: Worker Worker(salt=4567937865, workers=1, host=zueible, username=zulfan, pid=1031) was stopped. Shutting down Keep-Alive thread
+INFO: 
+===== Luigi Execution Summary =====
+
+Scheduled 8 tasks of which:
+* 5 ran successfully:
+    - 1 ExtractDatabaseSalesData()
+    - 1 ExtractLazadaTorchData()
+    - 1 ExtractMarketingData()
+    - 1 ExtractTokpedTorchData()
+    - 1 TransformTorchData()
+* 2 failed:
+    - 1 TransformMarketingData()
+    - 1 TransformSalesData()
+* 1 were left pending, among these:
+    * 1 had failed dependencies:
+        - 1 LoadData()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
+Terjadi kesalahan: HTTPConnectionPool(host='localhost', port=35579): Read timed out. (read timeout=120)
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   DONE
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   DONE
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   DONE
+DEBUG: Checking if LoadData() is complete
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   DONE
+INFO: Done scheduling tasks
+INFO: Running Worker with 1 processes
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 3
+INFO: [pid 3604] Worker Worker(salt=4564816071, workers=1, host=zueible, username=zulfan, pid=3604) running   TransformSalesData()
+INFO: [pid 3604] Worker Worker(salt=4564816071, workers=1, host=zueible, username=zulfan, pid=3604) done      TransformSalesData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 2
+INFO: [pid 3604] Worker Worker(salt=4564816071, workers=1, host=zueible, username=zulfan, pid=3604) running   TransformMarketingData()
+INFO: [pid 3604] Worker Worker(salt=4564816071, workers=1, host=zueible, username=zulfan, pid=3604) done      TransformMarketingData()
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   DONE
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 1
+INFO: [pid 3604] Worker Worker(salt=4564816071, workers=1, host=zueible, username=zulfan, pid=3604) running   LoadData()
+ERROR: [pid 3604] Worker Worker(salt=4564816071, workers=1, host=zueible, username=zulfan, pid=3604) failed    LoadData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3298, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 622, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 677, in run
+    with dw_engine.connect() as conn:
+         ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3274, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3298, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 622, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Done
+DEBUG: There are no more tasks to run at this time
+DEBUG: There are 1 pending tasks possibly being run by other workers
+DEBUG: There are 1 pending tasks unique to this worker
+DEBUG: There are 1 pending tasks last scheduled by this worker
+INFO: Worker Worker(salt=4564816071, workers=1, host=zueible, username=zulfan, pid=3604) was stopped. Shutting down Keep-Alive thread
+INFO: 
+===== Luigi Execution Summary =====
+
+Scheduled 7 tasks of which:
+* 4 complete ones were encountered:
+    - 1 ExtractDatabaseSalesData()
+    - 1 ExtractMarketingData()
+    - 1 ExtractTokpedTorchData()
+    - 1 TransformTorchData()
+* 2 ran successfully:
+    - 1 TransformMarketingData()
+    - 1 TransformSalesData()
+* 1 failed:
+    - 1 LoadData()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Checking if TransformSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   DONE
+DEBUG: Checking if TransformMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   DONE
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   DONE
+DEBUG: Checking if LoadData() is complete
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   DONE
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   DONE
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   DONE
+INFO: Done scheduling tasks
+INFO: Running Worker with 1 processes
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 1
+INFO: [pid 3637] Worker Worker(salt=6191862420, workers=1, host=zueible, username=zulfan, pid=3637) running   LoadData()
+ERROR: [pid 3637] Worker Worker(salt=6191862420, workers=1, host=zueible, username=zulfan, pid=3637) failed    LoadData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3298, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 622, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  database "de_project_pacmann" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 677, in run
+    with dw_engine.connect() as conn:
+         ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3274, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3298, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 622, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  database "de_project_pacmann" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Done
+DEBUG: There are no more tasks to run at this time
+DEBUG: There are 1 pending tasks possibly being run by other workers
+DEBUG: There are 1 pending tasks unique to this worker
+DEBUG: There are 1 pending tasks last scheduled by this worker
+INFO: Worker Worker(salt=6191862420, workers=1, host=zueible, username=zulfan, pid=3637) was stopped. Shutting down Keep-Alive thread
+INFO: 
+===== Luigi Execution Summary =====
+
+Scheduled 7 tasks of which:
+* 6 complete ones were encountered:
+    - 1 ExtractDatabaseSalesData()
+    - 1 ExtractMarketingData()
+    - 1 ExtractTokpedTorchData()
+    - 1 TransformMarketingData()
+    - 1 TransformSalesData()
+    ...
+* 1 failed:
+    - 1 LoadData()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
+DEBUG: Checking if ExtractMarketingData() is complete
+INFO: Informed scheduler that task   ExtractMarketingData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractDatabaseSalesData() is complete
+INFO: Informed scheduler that task   ExtractDatabaseSalesData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Checking if ExtractTokpedTorchData() is complete
+INFO: Informed scheduler that task   ExtractTokpedTorchData__99914b932b   has status   DONE
+DEBUG: Checking if TransformSalesData() is complete
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   DONE
+DEBUG: Checking if TransformMarketingData() is complete
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   DONE
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   DONE
+DEBUG: Checking if LoadData() is complete
+DEBUG: Checking if TransformSalesData() is complete
+DEBUG: Checking if TransformMarketingData() is complete
+DEBUG: Checking if TransformTorchData() is complete
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   PENDING
+INFO: Informed scheduler that task   TransformTorchData__99914b932b   has status   DONE
+INFO: Informed scheduler that task   TransformMarketingData__99914b932b   has status   DONE
+INFO: Informed scheduler that task   TransformSalesData__99914b932b   has status   DONE
+INFO: Done scheduling tasks
+INFO: Running Worker with 1 processes
+DEBUG: Asking scheduler for work...
+DEBUG: Pending tasks: 1
+INFO: [pid 3786] Worker Worker(salt=9411670755, workers=1, host=zueible, username=zulfan, pid=3786) running   LoadData()
+ERROR: [pid 3786] Worker Worker(salt=9411670755, workers=1, host=zueible, username=zulfan, pid=3786) failed    LoadData()
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3298, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 622, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  database "de_project_pacmann" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 210, in run
+    new_deps = self._run_get_new_deps()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/luigi/worker.py", line 138, in _run_get_new_deps
+    task_gen = self.task.run()
+               ^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/etl_de_project_pacmann.py", line 677, in run
+    with dw_engine.connect() as conn:
+         ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3274, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 148, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2439, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3298, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 622, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  database "de_project_pacmann" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+DEBUG: 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   LoadData__99914b932b   has status   FAILED
+DEBUG: Asking scheduler for work...
+DEBUG: Done
+DEBUG: There are no more tasks to run at this time
+DEBUG: There are 1 pending tasks possibly being run by other workers
+DEBUG: There are 1 pending tasks unique to this worker
+DEBUG: There are 1 pending tasks last scheduled by this worker
+INFO: Worker Worker(salt=9411670755, workers=1, host=zueible, username=zulfan, pid=3786) was stopped. Shutting down Keep-Alive thread
+INFO: 
+===== Luigi Execution Summary =====
+
+Scheduled 7 tasks of which:
+* 6 complete ones were encountered:
+    - 1 ExtractDatabaseSalesData()
+    - 1 ExtractMarketingData()
+    - 1 ExtractTokpedTorchData()
+    - 1 TransformMarketingData()
+    - 1 TransformSalesData()
+    ...
+* 1 failed:
+    - 1 LoadData()
+
+This progress looks :( because there were failed tasks
+
+===== Luigi Execution Summary =====
+
