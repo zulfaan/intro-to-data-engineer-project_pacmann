@@ -555,6 +555,7 @@ class TransformSalesData(luigi.Task):
             "grocery & gourmet foods": "grocery",
             "tv, audio & cameras": "electronics",
             "car & motorbike": "automotive",
+            "Testing Category": "testing"
         }
         # Mengganti kategori utama dengan kategori yang telah dipetakan
         sales_data['main_category'] = sales_data['main_category'].replace(category_mapping)
