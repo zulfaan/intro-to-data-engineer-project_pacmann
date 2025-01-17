@@ -1,0 +1,26 @@
+services:
+  etl_pipeline:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./raw-data:/app/raw-data
+      - ./source-marketing_data:/app/source-marketing_data
+      - ./transform-data:/app/transform-data
+      - ./validate-data:/app/validate-data
+      - ./app/logfile
+    working_dir: /app
+    command: python etl_de_project_pacmann.py
+services:
+  etl:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: docker-etl-de_project_pacmann
+    environment:
+      DB_HOST: host.docker.internal
+      DB_PORT: 5432
+      DB_NAME: de_project_pacmann
+      DB_USER: postgres
+      DB_PASSWORD: 123123
+    network_mode: "host"
