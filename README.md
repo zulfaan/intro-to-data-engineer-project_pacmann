@@ -29,9 +29,10 @@ Sebagai Data Engineer di Perusahaan XYZ, saya diberi tugas untuk membuat ETL (Ex
 │   └── validate_data.txt 
 ├── etl_de_project_pacmann.py               # Pipeline luigi 
 ├── validate_data.py                        # Validasi data
+├── run_etl.sh                              # Script untuk menjalankan ETL secara manual
+├── logfile                                 # Log file proses ETL
 └── README.md                               # Dokumentasi proyek
 ```
-
 
 ## Solusi yang Diusulkan
 
@@ -47,41 +48,96 @@ Sebagai Data Engineer di Perusahaan XYZ, saya diberi tugas untuk membuat ETL (Ex
 - Saya melakukan web scraping untuk mengumpulkan data produk torch dari Lazada dan Tokopedia.
 - Data yang diperoleh akan dibersihkan dan disesuaikan untuk keperluan analisis pemasaran.
 
-## Implementasi Pipeline ETL
+# Desain ETL Pipeline
 
-Pipeline ETL ini saya implementasikan menggunakan Luigi dengan langkah-langkah berikut:
+## Extraction (Extract)
 
-### Extract:
-- Ekstraksi data dilakukan dari tiga sumber:
-  - **PostgreSQL Database** untuk data penjualan tim Sales.
-  - **File CSV** untuk data harga produk tim Product.
-  - **Web Scraping** untuk data produk torch dari Lazada dan Tokopedia untuk tim Marketing Torch.
+### Marketing Data:
+- Data diambil dari file CSV lokal `ElectronicsProductsPricingData.csv` yang ada dalam folder `source-marketing_data`.
+- Menggunakan kelas `ExtractMarketingData` untuk membaca dan menyimpan data ke file `extracted_marketing_data.csv`.
 
-### Transform:
-- **Data Penjualan (Sales)**:
-  - Memperbaiki format tanggal dan menambahkan kolom yang hilang seperti `discount_price`.
-  - Mengatasi missing values dengan interpolasi untuk data numerik dan mode untuk data kategori.
-  - Menghapus duplikasi dan memperbaiki kesalahan format.
+### Sales Data:
+- Data diambil dari tabel database PostgreSQL bernama `amazon_sales_data`.
+- Menggunakan kelas `ExtractDatabaseSalesData` untuk menjalankan query SQL dan menyimpan hasilnya ke file `extracted_sales_data.csv`.
 
-- **Data Produk (Product)**:
-  - Mengonversi data harga menjadi format yang konsisten.
-  - Mengatasi missing values dengan imputasi berdasarkan harga rata-rata.
-  - Menambahkan kolom baru seperti `discount` dan `category`.
+### Product Data dari Tokopedia:
+- Data diambil menggunakan scraping dengan Selenium dari halaman produk Torch di Tokopedia.
+- Kelas `ExtractTokpedTorchData` menyimpan hasil ekstrak ke file `torch_tokped_raw.csv`.
 
-- **Data Marketing Torch**:
-  - Menyaring data produk torch berdasarkan kategori relevan dari Lazada dan Tokopedia.
-  - Membersihkan data, seperti menghapus karakter khusus atau tanda baca yang tidak diperlukan.
-  - Menyusun ulang data dalam format yang lebih terstruktur (misalnya, menggabungkan nama produk dengan harga dan rating).
+### Product Data dari Lazada:
+- Data diambil menggunakan scraping dengan Selenium dari halaman produk Torch di Lazada.
+- Kelas `ExtractLazadaTorchData` menyimpan hasil ekstrak ke file `torch_lazada_raw.csv`.
 
-### Load:
-- Data yang telah diproses dimuat ke dalam database PostgreSQL untuk analisis lebih lanjut.
+---
+
+## Transformation (Transform)
+
+### Sales Data:
+Transformasi dilakukan melalui kelas `TransformSalesData`, termasuk:
+- Pembersihan nama produk.
+- Konversi format harga (dalam rupee) dan kalkulasi diskon.
+- Penyederhanaan kategori produk menggunakan mapping tertentu.
+- Hasil disimpan ke file `sales_clean.csv`.
+
+### Marketing Data:
+Transformasi dilakukan melalui kelas `TransformMarketingData`, termasuk:
+- Pembersihan data tanggal, berat produk, ketersediaan, kondisi produk, dan informasi pengiriman.
+- Kalkulasi diskon berdasarkan harga maksimum dan minimum.
+- Hasil disimpan ke file `marketing_clean.csv`.
+
+### Product Data Tokopedia & Lazada:
+Pembersihan dan transformasi data dilakukan melalui kelas `TransformTorchData`, seperti:
+- Pembersihan harga, rating, dan diskon.
+- Konversi format data untuk keseragaman.
+- Pembuangan kolom yang tidak diperlukan.
+- Hasil disimpan ke file `torch_tokped_clean.csv` dan `torch_lazada_clean.csv`.
+
+---
+
+## Loading (Load)
+
+- Data dari tahap transformasi dimuat ke database PostgreSQL bernama `de_project_pacmann`.
+- Kelas `LoadData` menangani proses pembuatan tabel database jika belum ada, termasuk:
+  - Tabel untuk data penjualan (`sales_clean`).
+  - Tabel untuk data pemasaran (`marketing_clean`).
+  - Tabel untuk data Tokopedia (`torch_tokped_clean`).
+  - Tabel untuk data Lazada (`torch_lazada_clean`).
+
+- Data dimasukkan ke tabel menggunakan metode `.to_sql()` dari Pandas.
 
 ## Cara Menjalankan Pipeline
 
-Pastikan semua dependensi telah diinstal. Jika Anda belum memilikinya, Anda dapat membuatnya dengan cara menginstal dependensi berikut secara manual:
+### Secara Manual:
+1. Pastikan semua dependensi telah diinstal.
+2. Jalankan script `run_etl.sh` untuk memulai pipeline ETL.
 
+   ```bash
+   ./run_etl.sh
+   ```
 
-Data yang telah diproses akan disimpan di direktori `transform-data/` dan/atau database PostgreSQL.
+### Secara Terjadwal:
+Pipeline ini dijalankan secara otomatis setiap 2 menit dengan menggunakan cron job. Berikut adalah konfigurasi crontab yang digunakan:
+
+```plaintext
+*/2 * * * * /path/to/project/run_etl.sh >> /path/to/project/logfile 2>&1
+```
+
+Untuk memastikan cron berjalan:
+1. Tambahkan jadwal cron dengan menjalankan perintah:
+
+   ```bash
+   crontab -e
+   ```
+
+2. Masukkan konfigurasi di atas ke dalam file crontab.
+
+3. Periksa status cron dengan perintah:
+
+   ```bash
+   sudo service cron status
+   ```
+
+4. Hasil eksekusi akan dicatat di file `logfile`.
 
 ## Validasi Data
 
@@ -93,46 +149,27 @@ Untuk memastikan kualitas data yang dimuat ke database, saya membuat skrip `vali
 
 Untuk menjalankan validasi data, gunakan perintah berikut:
 
+```bash
+python validate_data.py
+```
 
 ## Instalasi
 
 1. Clone repositori:
 
-    ```
+    ```bash
     git clone https://github.com/zulfaan/intro-to-data-engineer-project_pacmann.git
     cd intro-to-data-engineer-project_pacmann
     ```
 
-2. Install dependensi:
-
-    ```
-    pip install luigi psycopg2 pandas requests tabulate selenium sqlalchemy
-    ```
-
-3. Siapkan database PostgreSQL dan perbarui konfigurasi koneksi di file kode.
-
-## Desain Pipeline ETL
-
-Pipeline ini dirancang untuk mendukung proses berikut:
-
-- Ekstraksi data dari berbagai sumber.
-- Transformasi data untuk meningkatkan kualitas dan menambahkan informasi baru.
-- Pemuatan data ke dalam database PostgreSQL untuk analisis lebih lanjut.
-
-## Skenario Pengujian
-
-- **Tes Ekstraksi Data**: Memastikan data berhasil diambil dari setiap sumber.
-- **Tes Transformasi Data**: Memastikan data yang telah diproses sesuai dengan format yang diharapkan.
-- **Tes Pemuatan Data**: Memastikan data yang telah diproses berhasil dimuat ke database tanpa error.
+2. Siapkan database PostgreSQL dan perbarui konfigurasi koneksi di file kode.
 
 ## Kontribusi
 
 Kontribusi sangat dihargai! Silakan kirimkan issue atau pull request untuk meningkatkan pipeline atau menambahkan fitur baru.
-
 
 ## Penulis
 
 [Zulfa Nurfajar](https://www.linkedin.com/in/zulfanurfajar/)
 
 Jika Anda memiliki pertanyaan atau saran, silakan buka issue atau hubungi saya melalui repositori ini!
-
