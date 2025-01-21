@@ -10,43 +10,21 @@ Sebagai Data Engineer di Perusahaan XYZ, saya diberi tugas untuk membuat ETL (Ex
 - **Tim Product** memiliki data harga produk elektronik dalam bentuk file CSV, namun datanya berantakan dan banyak nilai yang hilang.
 - **Tim Marketing Torch** membutuhkan data produk torch untuk riset, yang saya ambil melalui web scraping dari platform Lazada dan Tokopedia.
 
-## Struktur Proyek
-```plaintext
-.
-├── raw-data/                               # File data mentah dan hasil pemrosesan
-│   ├── extracted_marketing_data.csv       
-│   ├── extracted_sales_data.csv     
-│   ├── torch_lazada_raw.csv         
-│   └── torch_tokped_raw.csv                  
-├── source-marketing_data/                  # File data mentah marketing
-│   ├── ElectronicsProductsPricingData.csv
-├── transform-data                          # File data hasil transformasi
-│   ├── marketing_clean.csv       
-│   ├── sales_clean.csv     
-│   ├── torch_lazada_clean.csv         
-│   └── torch_tokped_clean.csv
-├── validate-data                           # File data hasil pengecekan
-│   └── validate_data.txt 
-├── etl_de_project_pacmann.py               # Pipeline luigi 
-├── validate_data.py                        # Validasi data
-├── run_etl.sh                              # Script untuk menjalankan ETL secara manual
-├── logfile                                 # Log file proses ETL
-└── README.md                               # Dokumentasi proyek
-```
-
 ## Solusi yang Diusulkan
 
-### Data dari Tim Sales:
-- Saya melakukan proses ekstraksi langsung dari database PostgreSQL.
-- Missing values diatasi dengan metode interpolasi atau imputasi untuk menjaga kualitas data.
+### 1. Data dari Tim Sales
+- Data diambil langsung dari database PostgreSQL menggunakan pipeline otomatis.
+- Missing values diatasi dengan teknik interpolasi atau imputasi untuk menjaga kualitas data dan konsistensi.
 
-### Data dari Tim Product:
-- Saya mengimpor data dari file CSV ke pipeline.
-- Selama proses transformasi, saya menangani data yang hilang dan memperbaiki format yang tidak konsisten.
+### 2. Data dari Tim Product
+- Data diimpor dari file CSV yang kemudian diproses melalui pipeline.
+- Selama transformasi, dilakukan:
+  - Penanganan missing values.
+  - Perbaikan format data yang tidak konsisten.
 
-### Data untuk Tim Marketing Torch:
-- Saya melakukan web scraping untuk mengumpulkan data produk torch dari Lazada dan Tokopedia.
-- Data yang diperoleh akan dibersihkan dan disesuaikan untuk keperluan analisis pemasaran.
+### 3. Data untuk Tim Marketing Torch
+- Data produk Torch dikumpulkan melalui web scraping dari platform Lazada dan Tokopedia.
+- Proses pembersihan dan penyesuaian data dilakukan untuk memastikan data siap digunakan dalam analisis pemasaran.
 
 # Desain ETL Pipeline
 
@@ -62,13 +40,12 @@ Sebagai Data Engineer di Perusahaan XYZ, saya diberi tugas untuk membuat ETL (Ex
 
 ### Product Data dari Tokopedia:
 - Data diambil menggunakan scraping dengan Selenium dari halaman produk Torch di Tokopedia.
-- Kelas `ExtractTokpedTorchData` menyimpan hasil ekstrak ke file `torch_tokped_raw.csv`.
+- Class `ExtractTokpedTorchData` menyimpan hasil ekstrak ke file `torch_tokped_raw.csv`.
 
 ### Product Data dari Lazada:
 - Data diambil menggunakan scraping dengan Selenium dari halaman produk Torch di Lazada.
-- Kelas `ExtractLazadaTorchData` menyimpan hasil ekstrak ke file `torch_lazada_raw.csv`.
+- Class `ExtractLazadaTorchData` menyimpan hasil ekstrak ke file `torch_lazada_raw.csv`.
 
----
 
 ## Transformation (Transform)
 
@@ -104,6 +81,32 @@ Pembersihan dan transformasi data dilakukan melalui kelas `TransformTorchData`, 
   - Tabel untuk data Lazada (`torch_lazada_clean`).
 
 - Data dimasukkan ke tabel menggunakan metode `.to_sql()` dari Pandas.
+
+
+## Struktur Proyek
+```plaintext
+.
+├── raw-data/                               # File data mentah dan hasil pemrosesan
+│   ├── extracted_marketing_data.csv       
+│   ├── extracted_sales_data.csv     
+│   ├── torch_lazada_raw.csv         
+│   └── torch_tokped_raw.csv                  
+├── source-marketing_data/                  # File data mentah marketing
+│   ├── ElectronicsProductsPricingData.csv
+├── transform-data                          # File data hasil transformasi
+│   ├── marketing_clean.csv       
+│   ├── sales_clean.csv     
+│   ├── torch_lazada_clean.csv         
+│   └── torch_tokped_clean.csv
+├── validate-data                           # File data hasil pengecekan
+│   └── validate_data.txt 
+├── etl_de_project_pacmann.py               # Pipeline luigi 
+├── validate_data.py                        # Validasi data
+├── run_etl.sh                              # Script untuk menjalankan ETL secara manual
+├── logfile                                 # Log file proses ETL
+└── README.md                               # Dokumentasi proyek
+```
+
 
 ## Cara Menjalankan Pipeline
 
