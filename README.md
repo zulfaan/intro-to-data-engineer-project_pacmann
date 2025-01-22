@@ -7,7 +7,7 @@ Sebagai Data Engineer di Perusahaan XYZ, saya diberi tugas untuk membuat ETL (Ex
 ## Temuan dari Requirements Gathering
 
 - **Tim Sales** memiliki data penjualan barang di Database PostgreSQL, namun terdapat banyak nilai yang hilang dan format data yang tidak konsisten.
-- **Tim Product** memiliki data harga produk elektronik dalam bentuk file CSV, namun datanya berantakan dan banyak nilai yang hilang.
+- **Tim Marketing** memiliki data harga produk elektronik dalam bentuk file CSV, namun datanya berantakan dan banyak nilai yang hilang.
 - **Tim Data Scientist Torch** membutuhkan data produk torch untuk riset, yang saya ambil melalui web scraping dari platform Lazada dan Tokopedia.
 
 ## Solusi yang Diusulkan
@@ -16,7 +16,7 @@ Sebagai Data Engineer di Perusahaan XYZ, saya diberi tugas untuk membuat ETL (Ex
 - Data diambil langsung dari database PostgreSQL menggunakan pipeline otomatis.
 - Missing values diatasi dengan teknik interpolasi atau imputasi untuk menjaga kualitas data dan konsistensi.
 
-### 2. Data dari Tim Product
+### 2. Data dari Tim Marketing
 - Data diimpor dari file CSV yang kemudian diproses melalui pipeline.
 - Selama transformasi, dilakukan:
   - Penanganan missing values.
