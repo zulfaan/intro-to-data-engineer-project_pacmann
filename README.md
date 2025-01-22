@@ -8,7 +8,7 @@ Sebagai Data Engineer di Perusahaan XYZ, saya diberi tugas untuk membuat ETL (Ex
 
 - **Tim Sales** memiliki data penjualan barang di Database PostgreSQL, namun terdapat banyak nilai yang hilang dan format data yang tidak konsisten.
 - **Tim Product** memiliki data harga produk elektronik dalam bentuk file CSV, namun datanya berantakan dan banyak nilai yang hilang.
-- **Tim Marketing Torch** membutuhkan data produk torch untuk riset, yang saya ambil melalui web scraping dari platform Lazada dan Tokopedia.
+- **Tim Data Scientist Torch** membutuhkan data produk torch untuk riset, yang saya ambil melalui web scraping dari platform Lazada dan Tokopedia.
 
 ## Solusi yang Diusulkan
 
@@ -22,7 +22,7 @@ Sebagai Data Engineer di Perusahaan XYZ, saya diberi tugas untuk membuat ETL (Ex
   - Penanganan missing values.
   - Perbaikan format data yang tidak konsisten.
 
-### 3. Data untuk Tim Marketing Torch
+### 3. Data untuk Tim Data Scientist Torch
 - Data produk Torch dikumpulkan melalui web scraping dari platform Lazada dan Tokopedia.
 - Proses pembersihan dan penyesuaian data dilakukan untuk memastikan data siap digunakan dalam analisis pemasaran.
 
