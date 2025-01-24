@@ -31,11 +31,11 @@ class ExtractMarketingData(luigi.Task):
         pass # Tidak ada task yang diperlukan
 
     def output(self):
-        return luigi.LocalTarget('/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/raw-data/extracted_marketing_data.csv') # Menyimpan data yang diekstrak ke file CSV
+        return luigi.LocalTarget('raw-data/extracted_marketing_data.csv') # Menyimpan data yang diekstrak ke file CSV
 
     def run(self):
         # Membaca data dari file CSV
-        marketing_data = pd.read_csv('/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/source-marketing_data/ElectronicsProductsPricingData.csv')
+        marketing_data = pd.read_csv('source-marketing_data/ElectronicsProductsPricingData.csv')
 
         # Menyimpan data yang diekstrak ke file CSV 
         marketing_data.to_csv(self.output().path, index = False)
@@ -46,7 +46,7 @@ class ExtractDatabaseSalesData(luigi.Task):
         pass # Tidak ada task yang diperlukan
 
     def output(self):
-        return luigi.LocalTarget('/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/raw-data/extracted_sales_data.csv') # Menyimpan data yang diekstrak ke file CSV
+        return luigi.LocalTarget('raw-data/extracted_sales_data.csv') # Menyimpan data yang diekstrak ke file CSV
 
     def run(self):
         engine = db_source_sales_engine() # Menghubungkan ke database
@@ -64,7 +64,7 @@ class ExtractTokpedTorchData(luigi.Task):
         pass # Tidak ada task yang diperlukan
     
     def output(self):
-        return luigi.LocalTarget('/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/raw-data/torch_tokped_raw.csv') # MTempat penyimpanan data yang diekstrak
+        return luigi.LocalTarget('raw-data/torch_tokped_raw.csv') # MTempat penyimpanan data yang diekstrak
 
 
     def run(self):
@@ -183,7 +183,7 @@ class ExtractLazadaTorchData(luigi.Task):
         pass # Tidak ada task yang diperlukan
 
     def output(self):
-        return luigi.LocalTarget('/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/raw-data/torch_lazada_raw.csv') # Tempat penyimpanan data yang diekstrak
+        return luigi.LocalTarget('raw-data/torch_lazada_raw.csv') # Tempat penyimpanan data yang diekstrak
 
     def run(self):
         base_url = "https://www.lazada.co.id/torch/?from=wangpu&langFlag=en&page={page}&pageTypeId=2&q=All-Products" # URL dasar untuk mengambil data produk Torch dari Lazada
@@ -434,8 +434,8 @@ class TransformTorchData(luigi.Task):
     def output(self):
         # Menentukan lokasi output untuk data yang telah dibersihkan
         return {
-            'tokped': luigi.LocalTarget('/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/transform-data/torch_tokped_clean.csv'),
-            'lazada': luigi.LocalTarget('/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/transform-data/torch_lazada_clean.csv')
+            'tokped': luigi.LocalTarget('transform-data/torch_tokped_clean.csv'),
+            'lazada': luigi.LocalTarget('transform-data/torch_lazada_clean.csv')
         }
 
     def run(self):
@@ -457,7 +457,7 @@ class TransformMarketingData(luigi.Task):
 
     def output(self):
         # Menentukan lokasi output untuk data yang telah dibersihkan
-        return luigi.LocalTarget("/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/transform-data/marketing_clean.csv")
+        return luigi.LocalTarget("transform-data/marketing_clean.csv")
 
     def run(self):
         # Memuat data dari file CSV yang dihasilkan oleh tugas sebelumnya
@@ -503,7 +503,7 @@ class TransformMarketingData(luigi.Task):
         # Mengatur urutan kolom yang akan disimpan
         marketing_data = marketing_data[['name_product', 'category', 'price_original', 'price_sale', 'discount', 'condition', 'availability', 'date_seen', 'weight_kg', 'shipping', 'merchant']]
         # Menyimpan data yang telah dibersihkan ke file CSV
-        marketing_data.to_csv("/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/transform-data/marketing_clean.csv", index=False)
+        marketing_data.to_csv("transform-data/marketing_clean.csv", index=False)
 
 # Kelas untuk mentranformasi Data Sales
 class TransformSalesData(luigi.Task):
@@ -513,7 +513,7 @@ class TransformSalesData(luigi.Task):
 
     def output(self):
         # Menentukan lokasi output untuk data yang telah dibersihkan
-        return luigi.LocalTarget("/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/transform-data/sales_clean.csv")
+        return luigi.LocalTarget("transform-data/sales_clean.csv")
 
     def run(self):
         # Memuat data dari file CSV yang dihasilkan oleh tugas sebelumnya
@@ -575,7 +575,7 @@ class TransformSalesData(luigi.Task):
         sales_data['price_original_rupee'] = sales_data['price_original_rupee'].astype(int)
         sales_data['price_sale_rupee'] = sales_data['price_sale_rupee'].astype(int)
         # Menyimpan data yang telah dibersihkan ke file CSV
-        sales_data.to_csv("/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/transform-data/sales_clean.csv", index=False)
+        sales_data.to_csv("transform-data/sales_clean.csv", index=False)
 
 # Membuat koneksi kedatabase PostgreSQL
 def postgres_engine():
