@@ -32,11 +32,11 @@ Sebagai Data Engineer di Perusahaan XYZ, saya diberi tugas untuk membuat ETL (Ex
 
 ### Marketing Data:
 - Data diambil dari file CSV lokal `ElectronicsProductsPricingData.csv` yang ada dalam folder `source-marketing_data`.
-- Menggunakan kelas `ExtractMarketingData` untuk membaca dan menyimpan data ke file `extracted_marketing_data.csv`.
+- Menggunakan class `ExtractMarketingData` untuk membaca dan menyimpan data ke file `extracted_marketing_data.csv`.
 
 ### Sales Data:
 - Data diambil dari tabel database PostgreSQL bernama `amazon_sales_data`.
-- Menggunakan kelas `ExtractDatabaseSalesData` untuk menjalankan query SQL dan menyimpan hasilnya ke file `extracted_sales_data.csv`.
+- Menggunakan class `ExtractDatabaseSalesData` untuk menjalankan query SQL dan menyimpan hasilnya ke file `extracted_sales_data.csv`.
 
 ### Product Data dari Tokopedia:
 - Data diambil menggunakan scraping dengan Selenium dari halaman produk Torch di Tokopedia.
@@ -49,21 +49,35 @@ Sebagai Data Engineer di Perusahaan XYZ, saya diberi tugas untuk membuat ETL (Ex
 
 ## Transformation (Transform)
 
+## Validasi Data
+
+Untuk memastikan kualitas data yang dimuat ke database, saya membuat skrip `validate_data.py`. Skrip ini memeriksa:
+
+- Konsistensi format data
+- Missing values
+- Duplikasi data
+
+Untuk menjalankan validasi data, gunakan perintah berikut:
+
+```bash
+python validate_data.py
+```
+
 ### Sales Data:
-Transformasi dilakukan melalui kelas `TransformSalesData`, termasuk:
+Transformasi dilakukan melalui class `TransformSalesData`, termasuk:
 - Pembersihan nama produk.
 - Konversi format harga (dalam rupee) dan kalkulasi diskon.
 - Penyederhanaan kategori produk menggunakan mapping tertentu.
 - Hasil disimpan ke file `sales_clean.csv`.
 
 ### Marketing Data:
-Transformasi dilakukan melalui kelas `TransformMarketingData`, termasuk:
+Transformasi dilakukan melalui class `TransformMarketingData`, termasuk:
 - Pembersihan data tanggal, berat produk, ketersediaan, kondisi produk, dan informasi pengiriman.
 - Kalkulasi diskon berdasarkan harga maksimum dan minimum.
 - Hasil disimpan ke file `marketing_clean.csv`.
 
 ### Product Data Tokopedia & Lazada:
-Pembersihan dan transformasi data dilakukan melalui kelas `TransformTorchData`, seperti:
+Pembersihan dan transformasi data dilakukan melalui class `TransformTorchData`, seperti:
 - Pembersihan harga, rating, dan diskon.
 - Konversi format data untuk keseragaman.
 - Pembuangan kolom yang tidak diperlukan.
@@ -142,19 +156,6 @@ Untuk memastikan cron berjalan:
 
 4. Hasil eksekusi akan dicatat di file `logfile`.
 
-## Validasi Data
-
-Untuk memastikan kualitas data yang dimuat ke database, saya membuat skrip `validate_data.py`. Skrip ini memeriksa:
-
-- Konsistensi format data
-- Missing values
-- Duplikasi data
-
-Untuk menjalankan validasi data, gunakan perintah berikut:
-
-```bash
-python validate_data.py
-```
 
 ## Instalasi
 

@@ -182,6 +182,9 @@ class ExtractLazadaTorchData(luigi.Task):
     def requires(self):
         pass # Tidak ada task yang diperlukan
 
+    def output(self):
+        return luigi.LocalTarget('/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/raw-data/torch_lazada_raw.csv') # Tempat penyimpanan data yang diekstrak
+
     def run(self):
         base_url = "https://www.lazada.co.id/torch/?from=wangpu&langFlag=en&page={page}&pageTypeId=2&q=All-Products" # URL dasar untuk mengambil data produk Torch dari Lazada
 
@@ -280,9 +283,6 @@ class ExtractLazadaTorchData(luigi.Task):
         
         finally:
             driver.quit() # Menutup browser
-
-    def output(self):
-        return luigi.LocalTarget('/mnt/e/Goals/pacmann/Learn/Python/case-study-ETL-workflow/intro-to-data-engineer-project_pacmann/raw-data/torch_lazada_raw.csv') # Tempat penyimpanan data yang diekstrak
 
 # Fungsi untuk membersihkan nama produk
 def clean_product_name(name):
@@ -580,10 +580,10 @@ class TransformSalesData(luigi.Task):
 # Membuat koneksi kedatabase PostgreSQL
 def postgres_engine():
     db_username = 'postgres' # Nama pengguna database
-    db_password = '123123' # Kata sandi database
+    db_password = 'qwerty123' # Kata sandi database
     db_host = 'localhost:5432' # Host database
     db_name = 'de_project_pacmann' # Nama database
-    # Membuat string konesi untuk database PostgreSQL
+    # Membuat string koneksi untuk database PostgreSQL
     engine_str = f"postgresql://{db_username}:{db_password}@{db_host}/{db_name}"
     engine = create_engine(engine_str) # Membuat engine database
 
